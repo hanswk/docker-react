@@ -1,0 +1,10 @@
+sudo: required
+services: 
+  - docker
+
+before_install:
+  - docker build -t hanswk/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run hanswk/docker-react npm run test -- --coverage
+
